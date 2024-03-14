@@ -18,118 +18,125 @@
 
 <body>
     <div id="app">
-    
 
-    <main id="site_main">
-        <div class="container">
 
-            <div class="left-container">
-                <!-- top-left bar -->
-                <div class="me-profile">
-                    <div class="profile">
-                        <img src="./assets/img/avatar_io.jpg" alt="">
+        <main id="site_main">
+            <div class="container">
+
+                <div class="left-container">
+                    <!-- top-left bar -->
+                    <div class="me-profile">
+                        <div class="profile">
+                            <img src="./assets/img/avatar_io.jpg" alt="">
+                        </div>
+                        <div class="utilities">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
                     </div>
-                    <div class="utilities">
-                        <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <!-- notification bar -->
+                    <div class="notifications-pop-up">
+                        <div class="bell"><i class="fa-solid fa-bell-slash"></i></div>
+                        <div class="text-notification">
+                            <div class="title"><strong>Ricevi notifiche di nuovi messaggi</strong></div>
+                            <div><a href="">Attiva notifichhe desktop</a></div>
+                        </div>
+                    </div>
+                    <!-- search bar -->
+                    <div class="search-bar">
+                        <div>
+                            <div class="icon">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <div class="text">
+                                Cerca o inizia una nuova chat
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- contact list -->
+                    <div class="contacts-list">
+                        <div class="contact" v-for="(contact, index) in contacts" @click="chooseContact(index)">
+                            <div class="contact-photo"><img :src="contact.avatar" alt=""></div>
+                            <div class="contact-name">
+                                <div class="name">{{contact.name}}</div>
+                                <div class="info">Ultimo messaggio inviato</div>
+                            </div>
+                            <div class="our">16:15</div>
+                        </div>
+
+
+
                     </div>
                 </div>
-                <!-- notification bar -->
-                <div class="notifications-pop-up">
-                    <div class="bell"><i class="fa-solid fa-bell-slash"></i></div>
-                    <div class="text-notification">
-                        <div class="title"><strong>Ricevi notifiche di nuovi messaggi</strong></div>
-                        <div><a href="">Attiva notifichhe desktop</a></div>
-                    </div>
-                </div>
-                <!-- search bar -->
-                <div class="search-bar">
-                    <div>
+                <div class="right-container">
+                    <!-- top-right bar -->
+                    <div class="actual-contact">
+                        <div class="name">
+                            <div class="photo">
+                                <img :src="actualContactImg" alt="">
+                            </div>
+                            <div class="contact-chat">
+                                <div>{{actualContactName}}</div>
+                                <div>{{lastAcces}}</div>
+                            </div>
+                        </div>
                         <div class="icon">
                             <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
-                        <div class="text">
-                            Cerca o inizia una nuova chat
-                        </div>
-                    </div>                       
-                </div>
-
-
-                <!-- contact list -->
-                <div class="contacts-list">
-                    <div class="contact" v-for="(contact, index) in contacts" @click="chooseContact(index)">
-                        <div class="contact-photo"><img :src="contact.avatar" alt=""></div>
-                        <div class="contact-name">
-                            <div class="name">{{contact.name}}</div>
-                            <div class="info">Ultimo messaggio inviato</div>
-                        </div>
-                        <div class="our">16:15</div>
                     </div>
+
+
+
+                    <!-- message area -->
                     
-
-                    
-                </div>
-            </div>
-            <div class="right-container">
-                <!-- top-right bar -->
-                <div class="actual-contact">
-                    <div class="name">
-                        <div class="photo">
-                            <img :src="actualContactImg" alt="">
-                        </div>
-                        <div class="contact-chat">
-                            <div>{{actualContactName}}</div>
-                            <div>{{lastAcces}}</div>
-                        </div>
-                    </div>
-                    <div class="icon">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-
-
-
-                <!-- message area -->
-                <div class="message-area">
-                    <div class="message-container">
-                        <div class="message send-message">
-                            <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente at voluptate dolores alias perspiciatis obcaecati, ullam laboriosam. Necessitatibus expedita! A nostrum commodi molestias dicta voluptatem cumque expedita!</div>
-                            <div class="message-more">
-                                <i class="fa-solid fa-angle-down"></i>
-                                <div class="more-action">
-                                    <div>Info messaggio</div>
-                                    <div>Cancella messaggio</div>
+                        <div class="message-area">
+                            <div class="message-container">
+                                <div class="message"  v-for="message in contacts[actualContactIndex].messages">
+                                    <div>{{message.text}}</div>
+                                    <div class="message-more">
+                                        <i class="fa-solid fa-angle-down"></i>
+                                        <div class="more-action">
+                                            <div>Info messaggio</div>
+                                            <div>Cancella messaggio</div>
+                                        </div>
+                                    </div>
+                                    <div class="our">16:13</div>
+                                </div>
+                                <div class="message recived-message">
+                                    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente at voluptate
+                                        dolores alias perspiciatis obcaecati, ullam laboriosam. Necessitatibus expedita!
+                                        A
+                                        nostrum commodi molestias dicta voluptatem cumque expedita!</div>
+                                    <div class="message-more">
+                                        <i class="fa-solid fa-angle-down"></i>
+                                        <div class="more-action">
+                                            <div>Info messaggio</div>
+                                            <div>Cancella messaggio</div>
+                                        </div>
+                                    </div>
+                                    <div class="our">16:13</div>
                                 </div>
                             </div>
-                            <div class="our">16:13</div>
                         </div>
-                        <div class="message recived-message">
-                            <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente at voluptate dolores alias perspiciatis obcaecati, ullam laboriosam. Necessitatibus expedita! A nostrum commodi molestias dicta voluptatem cumque expedita!</div>
-                            <div class="message-more">
-                                <i class="fa-solid fa-angle-down"></i>
-                                <div class="more-action">
-                                    <div>Info messaggio</div>
-                                    <div>Cancella messaggio</div>
-                                </div>
-                            </div>
-                            <div class="our">16:13</div>
-                        </div>
+                    
+
+
+                    <!-- write area -->
+                    <div class="write-area">
+                        <div class="emoticons"><i class="fa-regular fa-face-smile"></i></div>
+                        <div class="write-message">Scrivi un messaggio</div>
+                        <div class="vocal-message"><i class="fa-solid fa-microphone"></i></div>
                     </div>
                 </div>
-                <!-- write area -->
-                <div class="write-area">
-                    <div class="emoticons"><i class="fa-regular fa-face-smile"></i></div>
-                    <div class="write-message">Scrivi un messaggio</div>
-                    <div class="vocal-message"><i class="fa-solid fa-microphone"></i></div>
-                </div>
             </div>
-        </div>
-    </main>
-    <!-- /#site_main -->
-   </div>
+        </main>
+        <!-- /#site_main -->
+    </div>
 </body>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="./assets/js/main.js"></script>
