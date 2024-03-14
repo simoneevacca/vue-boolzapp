@@ -188,7 +188,6 @@ createApp({
             this.lastAcces = 'Ultimo accesso oggi alle 16:26'
             this.actualContactIndex = index,
                 console.log(this.actualContactIndex);
-
         },
 
         sendMessage() {
@@ -198,7 +197,9 @@ createApp({
                     text: this.newMessage,
                     status: 'sent'
                 })
+                
             this.newMessage = ''
+
 
             setTimeout(() => {
                 this.contacts[this.actualContactIndex].messages.push(
@@ -212,25 +213,16 @@ createApp({
 
        
         digit(){
-            this.contacts.forEach((element, index) => {
-                if (!element.name.includes(this.searcChat)) {
-                    element.visible = false
-                } else {
+            this.contacts.forEach(element => {
+                if (element.name.includes(this.searcChat)) {
                     element.visible = true
-
-                }
-
-                console.log(element.visible);
-                if (element.visible == false) {
-                    this.contacts.splice(index, 1)
-                }
-                
+                } else if (!element.name.includes(this.searcChat)) {
+                    element.visible = false
+                }               
             });
 
         }
     },
 
-    mounted() {
-
-    }
+    
 }).mount('#app')
