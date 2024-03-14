@@ -4,7 +4,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            actualContactIndex: null,
+            actualContactIndex: 0,
             actualContactImg: '',
             actualContactName: '',
             lastAcces: '',
@@ -186,6 +186,7 @@ createApp({
             this.lastAcces = 'Ultimo accesso oggi alle 16:26'
             this.actualContactIndex = index,
             console.log(this.actualContactIndex);
+            
         }
 
     }
