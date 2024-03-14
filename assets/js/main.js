@@ -1,4 +1,3 @@
-
 const { createApp } = Vue
 
 createApp({
@@ -191,42 +190,51 @@ createApp({
         },
 
         sendMessage() {
-            this.contacts[this.actualContactIndex].messages.push(
-                {
-                    date: '10/01/2020 15:51:00',
-                    text: this.newMessage,
-                    status: 'sent'
-                })
-
-            this.newMessage = ''
+            if (this.newMessage.length > 0) {
 
 
-            setTimeout(() => {
                 this.contacts[this.actualContactIndex].messages.push(
                     {
                         date: '10/01/2020 15:51:00',
-                        text: 'Ok',
-                        status: 'received'
+                        text: this.newMessage,
+                        status: 'sent'
                     })
-            }, 1000)
+
+
+                this.newMessage = ''
+
+
+                setTimeout(() => {
+                    this.contacts[this.actualContactIndex].messages.push(
+                        {
+                            date: '10/01/2020 15:51:00',
+                            text: 'Ok',
+                            status: 'received'
+                        })
+                }, 1000)
+            }
         },
 
-       
-        digit(){
+
+        digit() {
             this.contacts.forEach(element => {
                 if (element.name.includes(this.searcChat)) {
                     element.visible = true
                 } else if (!element.name.includes(this.searcChat)) {
                     element.visible = false
-                }               
+                }
             })
 
         },
 
-        deleteMessage(index){
+        deleteMessage(index) {
             this.contacts[this.actualContactIndex].messages.splice(index, 1)
         }
     },
 
-    
+    mounted() {
+
+    }
+
+
 }).mount('#app')
