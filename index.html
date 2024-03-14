@@ -58,11 +58,11 @@
 
                 <!-- contact list -->
                 <div class="contacts-list">
-                    <div class="contact" v-for="contact in contacts">
+                    <div class="contact" v-for="(contact, index) in contacts" @click="chooseContact(index)">
                         <div class="contact-photo"><img :src="contact.avatar" alt=""></div>
                         <div class="contact-name">
                             <div class="name">{{contact.name}}</div>
-                            <div class="info">Lorem ipsum dolor sit amet</div>
+                            <div class="info">Ultimo messaggio inviato</div>
                         </div>
                         <div class="our">16:15</div>
                     </div>
@@ -76,11 +76,11 @@
                 <div class="actual-contact">
                     <div class="name">
                         <div class="photo">
-                            <img src="./assets/img/avatar_1.jpg" alt="">
+                            <img :src="actualContactImg" alt="">
                         </div>
                         <div class="contact-chat">
-                            <div>Michele</div>
-                            <div>Ultimo accesso oggi alle 16:26</div>
+                            <div>{{actualContactName}}</div>
+                            <div>{{lastAcces}}</div>
                         </div>
                     </div>
                     <div class="icon">
@@ -89,6 +89,9 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
+
+
+
                 <!-- message area -->
                 <div class="message-area">
                     <div class="message-container">

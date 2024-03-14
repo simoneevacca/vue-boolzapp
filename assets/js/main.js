@@ -4,6 +4,10 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            actualContactImg: '',
+            actualContactName: '',
+            lastAcces: '',
+
             contacts: [
                 {
                     name: 'Michele',
@@ -172,5 +176,14 @@ createApp({
 
 
         }
+    },
+
+    methods: {
+        chooseContact(index){
+            this.actualContactImg = this.contacts[index].avatar
+            this.actualContactName = this.contacts[index].name
+            this.lastAcces = 'Ultimo accesso oggi alle 16:26'
+        }
+
     }
 }).mount('#app')
