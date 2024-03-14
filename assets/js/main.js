@@ -196,8 +196,17 @@ createApp({
                     date: '10/01/2020 15:51:00',
                     text: this.newMessage,
                     status: 'sent'
-                }),
+                })
             this.newMessage = ''
+
+            setTimeout(() => {
+                this.contacts[this.actualContactIndex].messages.push(
+                    {
+                        date: '10/01/2020 15:51:00',
+                        text: 'Ok',
+                        status: 'received'
+                    })
+            }, 1000)
         }
 
     }
