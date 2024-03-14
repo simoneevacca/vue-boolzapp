@@ -9,7 +9,7 @@ createApp({
             actualContactName: 'Michele',
             lastAcces: 'Ultimo accesso oggi alle 12:00',
             newMessage: '',
-            searcChat: 'Mic',
+            searcChat: '',
 
             contacts: [
                 {
@@ -197,7 +197,7 @@ createApp({
                     text: this.newMessage,
                     status: 'sent'
                 })
-                
+
             this.newMessage = ''
 
 
@@ -219,8 +219,12 @@ createApp({
                 } else if (!element.name.includes(this.searcChat)) {
                     element.visible = false
                 }               
-            });
+            })
 
+        },
+
+        deleteMessage(index){
+            this.contacts[this.actualContactIndex].messages.splice(index, 1)
         }
     },
 
