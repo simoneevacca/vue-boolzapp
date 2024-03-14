@@ -5,10 +5,11 @@ createApp({
     data() {
         return {
             actualContactIndex: 0,
-            actualContactImg: '',
-            actualContactName: '',
-            lastAcces: '',
+            actualContactImg: './assets/img/avatar_1.jpg',
+            actualContactName: 'Michele',
+            lastAcces: 'Ultimo accesso oggi alle 12:00',
             newMessage: '',
+            searcChat: 'Mic',
 
             contacts: [
                 {
@@ -207,7 +208,29 @@ createApp({
                         status: 'received'
                     })
             }, 1000)
+        },
+
+       
+        digit(){
+            this.contacts.forEach((element, index) => {
+                if (!element.name.includes(this.searcChat)) {
+                    element.visible = false
+                } else {
+                    element.visible = true
+
+                }
+
+                console.log(element.visible);
+                if (element.visible == false) {
+                    this.contacts.splice(index, 1)
+                }
+                
+            });
+
         }
+    },
+
+    mounted() {
 
     }
 }).mount('#app')

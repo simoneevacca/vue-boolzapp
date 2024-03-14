@@ -124,9 +124,6 @@
     background-color: white;
     height: 3.5rem;
 }
-.search-bar .text {
-    padding-left: 1rem;
-}
 
 .search-bar>div {
     display: flex;
@@ -157,6 +154,11 @@
     width: 90%;
     display: flex;
     align-items: center;
+    padding-left: 1rem;
+    align-self: center;
+    height: 32px;
+    border: none;
+    
 }
 
 .contacts-list {    /* contact list */
@@ -353,6 +355,7 @@
     background-color: white;
     display: flex;
     align-items: center;
+    border: none;
     border-radius: 5px;
     padding-left: 1rem;
     color: rgb(163, 163, 163);
