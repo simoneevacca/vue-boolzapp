@@ -8,6 +8,7 @@ createApp({
             actualContactImg: '',
             actualContactName: '',
             lastAcces: '',
+            newMessage: '',
 
             contacts: [
                 {
@@ -180,13 +181,23 @@ createApp({
     },
 
     methods: {
-        chooseContact(index){
+        chooseContact(index) {
             this.actualContactImg = this.contacts[index].avatar
             this.actualContactName = this.contacts[index].name
             this.lastAcces = 'Ultimo accesso oggi alle 16:26'
             this.actualContactIndex = index,
-            console.log(this.actualContactIndex);
-            
+                console.log(this.actualContactIndex);
+
+        },
+
+        sendMessage() {
+            this.contacts[this.actualContactIndex].messages.push(
+                {
+                    date: '10/01/2020 15:51:00',
+                    text: this.newMessage,
+                    status: 'sent'
+                }),
+            this.newMessage = ''
         }
 
     }

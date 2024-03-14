@@ -116,7 +116,7 @@
                     <!-- write area -->
                     <div class="write-area">
                         <div class="emoticons"><i class="fa-regular fa-face-smile"></i></div>
-                        <div class="write-message">Scrivi un messaggio</div>
+                        <input class="write-message" type="text" placeholder="scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
                         <div class="vocal-message"><i class="fa-solid fa-microphone"></i></div>
                     </div>
                 </div>
