@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+    <div id="app">
     
 
     <main id="site_main">
@@ -54,73 +54,21 @@
                         </div>
                     </div>                       
                 </div>
+
+
                 <!-- contact list -->
                 <div class="contacts-list">
-                    <div class="contact">
-                        <div class="contact-photo"><img src="./assets/img/avatar_1.jpg" alt=""></div>
+                    <div class="contact" v-for="contact in contacts">
+                        <div class="contact-photo"><img :src="contact.avatar" alt=""></div>
                         <div class="contact-name">
-                            <div class="name">Michele</div>
+                            <div class="name">{{contact.name}}</div>
                             <div class="info">Lorem ipsum dolor sit amet</div>
                         </div>
                         <div class="our">16:15</div>
                     </div>
-                    <div class="contact">
-                        <div class="contact-photo"><img src="./assets/img/avatar_2.jpg" alt=""></div>
-                        <div class="contact-name">
-                            <div class="name">Fabio</div>
-                            <div class="info">Lorem ipsum dolor sit amet</div>
-                        </div>
-                        <div class="our">16:15</div>
-                    </div>
-                    <div class="contact">
-                        <div class="contact-photo"><img src="./assets/img/avatar_3.jpg" alt=""></div>
-                        <div class="contact-name">
-                            <div class="name">Samuele</div>
-                            <div class="info">Lorem ipsum dolor sit amet</div>
-                        </div>
-                        <div class="our">16:15</div>
-                    </div>
-                    <div class="contact">
-                        <div class="contact-photo"><img src="./assets/img/avatar_4.jpg" alt=""></div>
-                        <div class="contact-name">
-                            <div class="name">Alessandro B.</div>
-                            <div class="info">Lorem ipsum dolor sit amet</div>
-                        </div>
-                        <div class="our">16:15</div>
-                    </div>
-                    <div class="contact">
-                        <div class="contact-photo"><img src="./assets/img/avatar_5.jpg" alt=""></div>
-                        <div class="contact-name">
-                            <div class="name">Alessandro L.</div>
-                            <div class="info">Lorem ipsum dolor sit amet</div>
-                        </div>
-                        <div class="our">16:15</div>
-                    </div>
-                    <div class="contact">
-                        <div class="contact-photo"><img src="./assets/img/avatar_6.jpg" alt=""></div>
-                        <div class="contact-name">
-                            <div class="name">Laura</div>
-                            <div class="info">Lorem ipsum dolor sit amet</div>
-                        </div>
-                        <div class="our">16:15</div>
-                    </div>
-                    <div class="contact">
-                        <div class="contact-photo"><img src="./assets/img/avatar_7.jpg" alt=""></div>
-                        <div class="contact-name">
-                            <div class="name">Francesco</div>
-                            <div class="info">Lorem ipsum dolor sit amet</div>
-                        </div>
-                        <div class="our">16:15</div>
-                    </div>
-                    <div class="contact">
-                        <div class="contact-photo"><img src="./assets/img/avatar_8.jpg" alt=""></div>
-                        <div class="contact-name">
-                            <div class="name">Antonio</div>
-                            <div class="info">Lorem ipsum dolor sit amet</div>
-                        </div>
-                        <div class="our">16:15</div>
-                    </div>
+                    
 
+                    
                 </div>
             </div>
             <div class="right-container">
@@ -178,7 +126,7 @@
         </div>
     </main>
     <!-- /#site_main -->
-</div>
+   </div>
 </body>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="./assets/js/main.js"></script>
