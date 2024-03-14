@@ -96,7 +96,7 @@
                     
                         <div class="message-area">
                             <div class="message-container">
-                                <div class="message"   v-for="(message, index) in contacts[actualContactIndex].messages">
+                                <div class="message"  :class="{'recived-message': message.status === 'received', 'send-message': message.status === 'sent'}"  v-for="(message, index) in contacts[actualContactIndex].messages">
                                     <div>{{message.text}}</div>
                                     <div class="message-more">
                                         <i class="fa-solid fa-angle-down"></i>
