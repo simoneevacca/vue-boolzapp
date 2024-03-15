@@ -1,5 +1,6 @@
 const { createApp } = Vue
 
+var DateTime = luxon.DateTime;
 createApp({
     data() {
         return {
@@ -9,6 +10,8 @@ createApp({
             lastAcces: 'Ultimo accesso oggi alle 12:00',
             newMessage: '',
             searchChat: '',
+            time: DateTime.now(),
+           
             
 
             contacts: [
@@ -243,5 +246,9 @@ createApp({
             this.contacts[this.actualContactIndex].messages.splice(index, 1)
         }
     },
+
+    mounted (){
+        console.log(time);
+    }
 
 }).mount('#app')
