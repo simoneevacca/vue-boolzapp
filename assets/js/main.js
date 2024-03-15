@@ -8,7 +8,8 @@ createApp({
             actualContactName: 'Michele',
             lastAcces: 'Ultimo accesso oggi alle 12:00',
             newMessage: '',
-            searcChat: '',
+            searchChat: '',
+            
 
             contacts: [
                 {
@@ -217,10 +218,12 @@ createApp({
 
 
         digit() {
+            this.searchChat = this.searchChat.charAt(0).toUpperCase() + this.searchChat.slice(1)
+            console.log(this.searchChat);
             this.contacts.forEach(element => {
-                if (element.name.includes(this.searcChat)) {
+                if (element.name.includes(this.searchChat)) {
                     element.visible = true
-                } else if (!element.name.includes(this.searcChat)) {
+                } else if (!element.name.includes(this.searchChat)) {
                     element.visible = false
                 }
             })
@@ -233,7 +236,7 @@ createApp({
     },
 
     mounted() {
-
+        console.log(this.luxon);
     }
 
 
