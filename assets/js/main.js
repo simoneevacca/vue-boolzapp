@@ -202,7 +202,7 @@ createApp({
 
                 this.contacts[this.actualContactIndex].messages.push(
                     {
-                        date: `${this.time.toLocaleString(DateTime.TIME_24_SIMPLE)}`,
+                        date: `${this.time.toLocaleString(DateTime.DATE_SHORT)} ${this.time.toLocaleString(DateTime.TIME_24_SIMPLE)}`,
                         text: this.newMessage,
                         status: 'sent'
                     })
@@ -215,7 +215,7 @@ createApp({
                 setTimeout(() => {
                     this.contacts[this.actualContactIndex].messages.push(
                         {
-                            date: `${this.time.toLocaleString(DateTime.TIME_24_SIMPLE)}`,
+                            date: `${this.time.toLocaleString(DateTime.DATE_SHORT)} ${this.time.toLocaleString(DateTime.TIME_24_SIMPLE)}`,
                             text: 'Ok',
                             status: 'received'
                         })
