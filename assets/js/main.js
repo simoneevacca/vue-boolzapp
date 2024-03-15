@@ -11,8 +11,8 @@ createApp({
             newMessage: '',
             searchChat: '',
             time: DateTime.now(),
-           
-            
+
+
 
             contacts: [
                 {
@@ -202,20 +202,20 @@ createApp({
 
                 this.contacts[this.actualContactIndex].messages.push(
                     {
-                        date: '10/01/2020 15:51:00',
+                        date: `${this.time.toLocaleString(DateTime.TIME_24_SIMPLE)}`,
                         text: this.newMessage,
                         status: 'sent'
                     })
 
                 this.newMessage = ''
-                
+
                 /**
                  * after a second print 'Ok' in the message list
                  */
                 setTimeout(() => {
                     this.contacts[this.actualContactIndex].messages.push(
                         {
-                            date: '10/01/2020 15:51:00',
+                            date: `${this.time.toLocaleString(DateTime.TIME_24_SIMPLE)}`,
                             text: 'Ok',
                             status: 'received'
                         })
@@ -247,8 +247,9 @@ createApp({
         }
     },
 
-    mounted (){
-        console.log(time);
+    mounted() {
+        console.log(DateTime.now()),
+        console.log(this.time.toLocaleString(DateTime.TIME_24_SIMPLE));
     }
 
 }).mount('#app')
