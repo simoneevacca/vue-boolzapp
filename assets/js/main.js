@@ -174,14 +174,15 @@ createApp({
                     ],
                 }
             ]
-
-
-
-
         }
     },
 
     methods: {
+
+        /**
+         * after clicking on a contact in the contact list show the correct chat
+         * @param {number} index 
+         */
         chooseContact(index) {
             this.actualContactImg = this.contacts[index].avatar
             this.actualContactName = this.contacts[index].name
@@ -190,9 +191,11 @@ createApp({
                 console.log(this.actualContactIndex);
         },
 
+        /**
+         * after sendig a message save it like sended in the message list
+         */
         sendMessage() {
             if (this.newMessage.length > 0) {
-
 
                 this.contacts[this.actualContactIndex].messages.push(
                     {
@@ -201,10 +204,11 @@ createApp({
                         status: 'sent'
                     })
 
-
                 this.newMessage = ''
-
-
+                
+                /**
+                 * after a second print 'Ok' in the message list
+                 */
                 setTimeout(() => {
                     this.contacts[this.actualContactIndex].messages.push(
                         {
@@ -216,10 +220,11 @@ createApp({
             }
         },
 
-
+        /**
+         * tranform first letter in uppercase and chek if is includes in a one of conacts name
+         */
         digit() {
             this.searchChat = this.searchChat.charAt(0).toUpperCase() + this.searchChat.slice(1)
-            console.log(this.searchChat);
             this.contacts.forEach(element => {
                 if (element.name.includes(this.searchChat)) {
                     element.visible = true
@@ -230,14 +235,13 @@ createApp({
 
         },
 
+        /**
+         * remove message from message list
+         * @param {number} index 
+         */
         deleteMessage(index) {
             this.contacts[this.actualContactIndex].messages.splice(index, 1)
         }
     },
-
-    mounted() {
-        console.log(this.luxon);
-    }
-
 
 }).mount('#app')
